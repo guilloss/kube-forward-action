@@ -20,7 +20,7 @@ const core = require("@actions/core");
     }
 
     if (kubeconfigData) {
-        kubeconfig = await core.group('Writing out kube config...', () => initKubeConfig(kubeconfig))
+        kubeconfig = await core.group('Writing out kube config...', () => initKubeConfig(kubeconfigData));
     }
     process.env['KUBECONFIG'] = kubeconfig;
 
