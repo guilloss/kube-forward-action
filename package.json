@@ -1,6 +1,6 @@
 {
   "name": "kube-forward-action",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A helper action to open a port-forward to a kube-cluster",
   "main": "action.js",
   "scripts": {
