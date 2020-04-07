@@ -8,9 +8,8 @@ const YAML = require('yaml');
 /**
  * Writes out the kube config and sets the appropriate outputs and env vars.
  * @param {string} kubeConfig The base64 kube config to use to connect to the cluster
- * @param {boolean} setEnv Whether or not to export the kube config path;
  */
-export async function initKubeConfig(kubeConfig, setEnv) {
+export async function initKubeConfig(kubeConfig) {
     const kubeDir = path.join(process.env.GITHUB_WORKSPACE, '.kube/');
     await fs.mkdir(kubeDir);
 

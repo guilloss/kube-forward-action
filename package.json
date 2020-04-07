@@ -24,7 +24,8 @@
     "@actions/core": "^1.2.3",
     "execa": "^4.0.0",
     "node-fetch": "^2.6.0",
-    "p-retry": "^4.2.0"
+    "p-retry": "^4.2.0",
+    "yaml": "^1.8.3"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.1"
