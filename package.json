@@ -1,0 +1,32 @@
+{
+  "name": "kube-forward-action",
+  "version": "0.1.0",
+  "description": "A helper action to open a port-forward to a kube-cluster",
+  "main": "action.js",
+  "scripts": {
+    "build": "ncc build action.js -o dist/action.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RichiCoder1/kube-forward-action.git"
+  },
+  "keywords": [
+    "kubernetes",
+    "port-forward"
+  ],
+  "author": "Richard Simpson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RichiCoder1/kube-forward-action/issues"
+  },
+  "homepage": "https://github.com/RichiCoder1/kube-forward-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.3",
+    "execa": "^4.0.0",
+    "node-fetch": "^2.6.0",
+    "p-retry": "^4.2.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.1"
+  }
+}

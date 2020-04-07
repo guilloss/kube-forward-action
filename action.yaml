@@ -1,0 +1,26 @@
+name: 'Kube Port-Forward Action'
+description: 'Opens a port-forward to a specific service on a specific cluster'
+inputs:
+  kubeconfig:
+    description: 'The path to the kube config to be used. Either kubeconfig or kubeconfig-data must be provided.'
+  kubeconfig-data:
+    description: 'The base64-encoded kube config to be used. Either kubeconfig or kubeconfig-data must be provided.'
+  targetRef:
+    description: 'The <kind>/<name> formatted target to open the port forward to.'
+    required: true
+  namespace:
+    description: 'The namespace of the target ref.'
+    default: 'default'
+    required: false
+  targetPort:
+    description: 'The port to open on the target. If not specified, port is used instead.'
+    required: false
+  port:
+    description: 'The port to open locally.'
+    required: true
+  healthCheck:
+    description: 'The endpoint path to check for health. By default, does a GET to the root path over http.'
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/action.js'
