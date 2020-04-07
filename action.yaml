@@ -24,3 +24,7 @@ inputs:
 runs:
   using: 'node12'
   main: 'dist/action/index.js'
+
+branding:
+  icon: radio
+  color: blue
