@@ -4136,7 +4136,7 @@ const action_core = __webpack_require__(470);
     }
 
     if (kubeconfigData) {
-        kubeconfig = await action_core.group('Writing out kube config...', () => initKubeConfig(kubeconfig))
+        kubeconfig = await action_core.group('Writing out kube config...', () => initKubeConfig(kubeconfigData));
     }
     process.env['KUBECONFIG'] = kubeconfig;
 
