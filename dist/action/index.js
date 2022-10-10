@@ -4172,22 +4172,6 @@ const action_core = __webpack_require__(470);
     // Wait a second to allow the port-forward to connect.
     await new Promise(resolve => setTimeout(resolve, 1000));
 
-    try {
-        await pRetry(async () => {
-            const response = await fetch(`http://localhost:${port}/${healthCheck}`);
-            if (response.status < 200 || response.stats >= 400) {
-                throw new Error(`Failed to connect: ${response.statusText}`)
-            }
-        }, {
-            retries: 3,
-            onFailedAttempt: retry => action_core.info(JSON.stringify(retry))
-        });
-    } catch (e) {
-        action_core.error('Failed to start port-forward.');
-        kubectl.kill('SIGTERM');
-        throw e;
-    }
-    
     action_core.endGroup();
     if (kubectl.connected) {
         kubectl.disconnect();
