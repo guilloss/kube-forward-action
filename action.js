@@ -55,22 +55,6 @@ const core = require("@actions/core");
 
     // Wait a second to allow the port-forward to connect.
     await new Promise(resolve => setTimeout(resolve, 1000));
-
-    try {
-        await pRetry(async () => {
-            const response = await fetch(`http://localhost:${port}/${healthCheck}`);
-            if (response.status < 200 || response.stats >= 400) {
-                throw new Error(`Failed to connect: ${response.statusText}`)
-            }
-        }, {
-            retries: 3,
-            onFailedAttempt: retry => core.info(JSON.stringify(retry))
-        });
-    } catch (e) {
-        core.error('Failed to start port-forward.');
-        kubectl.kill('SIGTERM');
-        throw e;
-    }
     
     core.endGroup();
     if (kubectl.connected) {
